@@ -1,0 +1,29 @@
+title: Migrating an On-Premise SQL Server to Azure SQL Manged Instance with Azure DMS
+slug: on-premise-sql-server-azure-sql-db
+short_description: Learn how to migrate from an On-Premise SQL Server to Azure SQL Manged Instance in this lab.
+lab_features: # cloud-environment|remote-desktop|cli|code-ide
+  - cloud-environment
+duration: 3600
+#step_variables:
+#  - "required_step_var: This <strong>string</strong> will be substituted in lab steps with {LabStep.required_step_var} and available in VCFs."
+#  - "?optional_step_var: Substituted in lab steps with {LabStep.?optional_step_var} and available in VCFs. Optional step variables are not required to be defined in a lab and will be substituted with nothing in that case."
+#  - "template_output: '{{outputName|default:''waiting_for_output''}}'"
+difficulty: Beginner # Beginner|Intermediate|Advanced
+instructor: "Microsoft"
+environment_start_image: before.png # relative to top-level assets/ directory
+environment_end_image: after.png # relative to top-level assets/ directory
+
+is_challenge: false
+# Challenge lab only properties (when is_challenge: true)
+#assessed_topics:
+#  - topic1
+#  - topic2
+#audiences: []
+#prerequisites: []
+
+# The following can always be kept at their defaults
+startup_time: 0
+freezable_type: Disabled
+freeze_timeout: 0
+allow_enterprise_bridge: true
+# image: warning.png # relative to top-level assets/ directory
