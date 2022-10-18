@@ -1,0 +1,4 @@
+title: On-Premise SQL Server to Azure SQL MI
+description: On-Premise SQL Server to Azure SQL MI
+vendor: azure # aws|azure|google|alibaba-cloud
+custom_policy_tags: azure-vm.allow_d8s_v3

@@ -1,0 +1,11 @@
+title: On-Premise SQL Server to Azure SQL MI
+description: On-Premise SQL Server to Azure SQL MI
+type: cloud-environment # cloud-environment|remote-desktop|cli|code-ide
+vendor: azure # aws|azure|google|alibaba-cloud vendor is mandatory if type: cloud-environment|remote-desktop
+language: json # yaml|json (corresponds to template file extension)
+
+# Needed when type: cli|code-ide
+#workspace_docker_image_url: "421805900968.dkr.ecr.us-east-2.amazonaws.com/cloudacademy/labs-workspace/image-name" # can set tag by appending :tag
+#content_docker_image_name: "github.com/cloudacademy/content-repo"
+#content_docker_image_tag: "tag" # optional; latest used when not specified. Tag will usually be a commit ID
+# Can use 'github.com/cloudacademy/noop-content-image-repo' for the content image if no IDE/CLI checks are required

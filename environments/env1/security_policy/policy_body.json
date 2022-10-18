@@ -1,0 +1,68 @@
+{
+  "permissions": [
+    {
+      "actions": ["*"],
+      "notActions": [
+        "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action",
+        "Microsoft.MarketplaceOrdering/*"
+      ]
+    }
+  ],
+  "parameters": {
+    "allowedLocations": {
+      "type": "array",
+      "metadata": {
+        "description": "The list of locations that can be specified when deploying resources",
+        "strongType": "location",
+        "displayName": "Allowed locations"
+      }
+    },
+    "allowedServices": {
+      "type": "array",
+      "metadata": {
+        "description": "The list of allowed services",
+        "displayName": "Allowed services"
+      }
+    }
+  },
+  "displayName": "Azure Synapse Migration Policy",
+  "description": "This policy restricts what is allowed in the Azure Synapse Lab.",
+  "policyRule": {
+    "if": {
+      "anyOf": [
+        {
+          "not": {
+            "field": "type",
+            "in": "[parameters('allowedServices')]"
+          }
+        },
+        {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters_values": {
+    "allowedLocations": {
+      "value": ["westus", "southcentralus", "{RGLocation}"]
+    },
+    "allowedServices": {
+      "value": [
+        "Microsoft.Synapse",
+        "Microsoft.Network",
+        "Microsoft.Authorization",
+        "Microsoft.ManagedIdentity",
+        "Microsoft.KeyVault",
+        "Microsoft.Storage"
+      ]
+    }
+  }
+}
