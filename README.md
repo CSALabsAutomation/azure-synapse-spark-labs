@@ -1,12 +1,8 @@
-# Azure Synapse Lab
+# ETL and reporting using Azure synapse Analytics Spark
 
 The objective of this lab is to provide participants solid understanding and experience of developing applications using Azure Synapse. The intended audience for the lab is architects and developers who design, build, and troubleshoot Azure Synapse solutions that meet business and technical requirements. The following are the main topics covered in the lab.
 
-1. Data ingestion and transformation using Synapse pipelines and data flows
-2. Data Ingestion and transformation using Synapse Spark
-3. Analyze data using Synapse Dedicated Pool
-4. Analyze data using Serverless pools
-5. Data warehouse Optimization
+1. Data Ingestion and transformation using Synapse Spark
 
 This is a deployment accelerator based on the reference architecture described in the Azure Architecture Center article [Analytics end-to-end with Azure Synapse](https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end). This deployment accelerator aims to automate not only the deployment of the services covered by the reference architecture, but also to fully automate the configuration and permissions required for the services to work together. The deployed architecture enables the end-to-end analytics platform capable of handling the most common uses cases for most organizations.
 
