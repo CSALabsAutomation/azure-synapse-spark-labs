@@ -3,64 +3,11 @@
         "template": "SynapseLab",
         "artifacts" : {
             "sqlScripts": [],
-            "pipelines": [
-             {
-                    "name": "DependentDimensions",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Pipelines/DependentDimensions.json",
-                    "tokens": []
-              },
-              {
-                    "name": "FactTables",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Pipelines/FactTables.json",
-                    "tokens": []
-              },
-              {
-                    "name": "IndependentDimensions",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Pipelines/IndependentDimensions.json",
-                    "tokens": []
-              }
-            
-            ],
+            "pipelines": [],
             "datasets":[],
             "notebooks": [],
             "linkedServices":[],
-            "dataflows":[
-                {
-                    "name": "DimChannel_DF",
-                    "interface": "rest",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/DataFlows/DimChannel_DF.json"
-                },
-                {
-                    "name": "DimCustomer_DF",
-                    "interface": "rest",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/DataFlows/DimCustomer_DF.json"
-                },
-                {
-                    "name": "DimDate_DF",
-                    "interface": "rest",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/DataFlows/DimDate_DF.json"
-                },
-                {
-                    "name": "DimGeography_DF",
-                    "interface": "rest",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/DataFlows/DimGeography_DF.json"
-                },
-                {
-                    "name": "DimProduct_DF",
-                    "interface": "rest",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/DataFlows/DimProduct_DF.json"
-                },
-                {
-                    "name": "FactSales_DF",
-                    "interface": "rest",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/DataFlows/FactSales_DF.json"
-                },
-                {
-                    "name": "adworks_DF",
-                    "interface": "rest",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/DataFlows/adworks_DF.json"
-                }
-            ],
+            "dataflows":[],
             "databases": [
                  {
                     "name": "adworkstarget",
