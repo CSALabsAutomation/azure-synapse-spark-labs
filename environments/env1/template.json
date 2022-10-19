@@ -220,7 +220,7 @@
     },
     "ctrlDeploySynapseSQLPool": {
       "type": "bool",
-      "defaultValue": true,
+      "defaultValue": false,
       "metadata": {
         "description": "Deploy SQL Pool"
       }
