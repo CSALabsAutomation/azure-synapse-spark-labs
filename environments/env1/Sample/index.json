@@ -8,80 +8,8 @@
             "notebooks": [],
             "linkedServices":[],
             "dataflows":[],
-            "databases": [
-                 {
-                    "name": "adworkstarget",
-                    "interface": "rest",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/adworkstarget.json",
-                    "tables": [],
-                    "relationships":[]
-                },
-                {
-                    "name": "adworks",
-                    "interface": "rest",
-                    "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/adworks.json",
-                    "tables": [
-                        {
-                            "name": "ProductData",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Tables/ProductData.json"
-                        },
-                        {
-                            "name": "Sales",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Tables/Sales.json"
-                        },
-                        {
-                            "name": "Calendar",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Tables/Calendar.json"
-                        },
-                        {
-                            "name": "CustomerData",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Tables/CustomerData.json"
-                        },
-                        {
-                            "name": "Location",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Tables/Location.json"
-                        },
-                        {
-                            "name": "Reseller",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Tables/Reseller.json"
-                        },
-                        {
-                            "name": "SalesTerritory",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Tables/SalesTerritory.json"
-                        }
-                    ],
-                    "relationships":[
-                        
-                        {
-                            "name": "relationship-SalesCustomerData",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Relatioship/rsSalesCustomerData.json"
-                        },
-                        {
-                            "name": "relationship-SalesDate",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Relatioship/rsSalesDate.json"
-                        },
-                        {
-                            "name": "relationship-SalesProductData",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Relatioship/rsSalesProductData.json"
-                        },
-                        {
-                            "name": "relationship-SalesReseller",
-                            "interface": "rest",
-                            "definitionFilePath": "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-spark-labs/main/environments/env1/Sample/Artifacts/Database/Relatioship/rsSalesReseller.json"
-                        }
-                        
-                       
-                    ]
+            "databases": [],
+            "relationships":[]
                 }
             ]
         }
