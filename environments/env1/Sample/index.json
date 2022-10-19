@@ -9,10 +9,10 @@
             "linkedServices":[],
             "dataflows":[],
             "databases": [],
-            "relationships":[]
+            
                 }
-            ]
-        }
+            
+        
     }
     
 ]
