@@ -1,6 +1,6 @@
-title: Migrating an On-Premise SQL Server to Azure SQL Manged Instance with Azure DMS
-slug: on-premise-sql-server-azure-sql-db
-short_description: Learn how to migrate from an On-Premise SQL Server to Azure SQL Manged Instance in this lab.
+title: ETL and reporting using Azure synapse Analytics Spark
+slug: azure-synapse-spark-labs
+short_description: ETL and reporting using Azure synapse Analytics Spark.
 lab_features: # cloud-environment|remote-desktop|cli|code-ide
   - cloud-environment
 duration: 3600
