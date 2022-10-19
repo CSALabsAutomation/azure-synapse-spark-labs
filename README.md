@@ -10,7 +10,7 @@ This is a deployment accelerator based on the reference architecture described i
 
 The scope of this deployment accelerator is illustrated in the diagram below.
 
-![Achitecture Components](./steps/01_data-ingestion-and-transformation-using-synapse-pipelines-and-dataflows/assets/synapse.JPG)
+![Achitecture Components](./steps/01_data-ingestion-and-transformation-using-synapse-spark/assets/synapse.jpg)
 
 
 #### Synapse Analytics
