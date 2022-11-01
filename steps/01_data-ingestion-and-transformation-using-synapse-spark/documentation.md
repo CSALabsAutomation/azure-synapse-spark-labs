@@ -4,6 +4,7 @@ Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of
 
 - Write the output of Spark jobs directly into an ADLS Gen2 location
 - Create Spark table reading Azure Open Dataset
+- Analyze and visualize data with Apache Spark
  
 ## Data Source
 
