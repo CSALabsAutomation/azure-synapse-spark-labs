@@ -13,6 +13,30 @@ Azure Open Dataset
  - NycTlcGreen
  - NoaaIsdWeather
 
+## Prerequisites:
+### Log-in to the Azure Portal
+
+1.  In the **Resource groups** blade, navigate to created resource group and select the created  **Synapse Workspace**.
+
+   ![The Synapse Workspace is highlighted](./assets/01_Synapse.JPG "Select the synapse workspace")  
+   
+2. In the  **_Overview_** section of synapseworkspace select **_Open_** to open synapse studio.
+
+  ![ws](./assets/2_open_ws.jpg "open WS")
+
+### Note : Synapse Administrator access is already provided and below two steps are only for the learning and knowledge purpose
+
+1. If you dont have the Synapse Administrator access then synapse workspace will promt **Failed to load** message.
+
+![views](./assets/01_failed.JPG "view WS")
+    
+2.	To provide Synapse Administrator access In Synapse Studio, under  **_Manage_** tab, select **_Access Control_** and add yourself as the **_Synapse Administrator_**
+
+    ![Access](./assets/4_access.JPG "Access")
+    
+
+   
+> **_NOTE:_** Note down the raw storage account name for further references
 
 ## Exercise 1 : Access data on Azure Data Lake Storage Gen2 (ADLS Gen2) with Synapse Spark
 
