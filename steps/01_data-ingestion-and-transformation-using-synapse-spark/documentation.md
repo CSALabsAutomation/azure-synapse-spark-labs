@@ -34,14 +34,14 @@ This notebook provides examples of how to write the output of Spark jobs directl
  ![addSqlScript](./assets/05-create_notebook_adls.jpg "create notebook adls")
  
 2.	Select the Spark Pool in the **_‘Attach To’_** section. 
-3.	In the properties section on the right pane , renaming the notebook as ``ntb_Open_DataSet_To_ADLS``.
+3.	In the properties section on the right pane , renaming the notebook as **ntb_Open_DataSet_To_ADLS**
 4.	Run the below scripts in the command cell. And use **_(+Code)_** icon for new cells.
  
  ![addSqlScript](./assets/05-run_notebook_adls.jpg "run notebook adls")
 
 ### Load sample data
 
-Let's first load the public holidays of last 6 months from Azure Open datasets as a sample.
+Let's first load the public holidays of last 6 months from Azure Open datasets as a sample. Click on Run button of cell to run the below code.
 
 **_In[1]:_**
 
@@ -94,7 +94,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import *
 
 # Primary storage info
-account_name = ' <azrawStorageAccount> ' # fill in your raw account name
+account_name = '<azrawStorageAccount>' # fill in your raw account name
 container_name = 'raw'
 relative_path = ''
 
@@ -213,7 +213,7 @@ Synapse has Azure Open Datasets package pre-installed. This notebook provides ex
        ![createNotebooks](./assets/06-create_notebook_dl.jpg "create notebook")
   
 3.	Select the Spark Pool in the **_‘Attach To’_** section. 
-3.	In the properties section on the right pane rename the notebook as ``ntb_Open_DataSet_To_LakeDB``
+3.	In the properties section on the right pane rename the notebook as **ntb_Open_DataSet_To_LakeDB**
 4.	Run the below code in the command cell. And use **_(+Code)_** icon for new cells.
        ![runNotebooks](./assets/06-run_notebook_dl.jpg "run notebook")
        
@@ -530,7 +530,7 @@ spark.sql("SELECT COUNT(*) FROM nyc_taxi_holiday_weather").show();
 
 1)	Once executing all the code cells. Click **_Validate All_** and **_Publish All_** at the top.
        ![publishNotebooks](./assets/06-publish_notebook_dl.jpg "publish notebook")
-3)	Navigate to **_Data Tab_**. Under Workspace expand **_Lake database_**.
+3)	Navigate to **_Data Tab_**. Under Workspace, refresh and then expand **_Lake database_**.
 4)	Check for the **_NycTaxi database and expand it_**.
 5)	Make sure you have **_nyc_taxi_holiday_weather table created_**.
 
@@ -544,7 +544,7 @@ In particular, we'll analyze the New York City (NYC) Taxi dataset. The data is a
 
 ### Download and prepare the data
 
- 1. Create a new notebook as created in above exercises and name it ``ntb_Analyze_and_Visualize_data``.
+ 1. Create a new notebook as created in above exercises and name it **ntb_Analyze_and_Visualize_data**
  2. In this tutorial, we'll use several different libraries to help us visualize the dataset. To do this analysis, import the following libraries:
  
    ```python
@@ -607,7 +607,7 @@ FROM taxi_dataset
 GROUP BY day_of_month
 ORDER BY day_of_month ASC
 ```
-2. After our query finishes running, we can visualize the results by switching to the chart view. This example creates a line chart by specifying the day_of_month field as the key and avgTipAmount as the value. After you've made the selections, select Apply to refresh your chart.
+2. After our query finishes running, we can visualize the results by switching to the chart view. This example creates a line chart by specifying the day_of_month field as the key and avgTipAmount as the value.
 
 ### Visualize data
 
