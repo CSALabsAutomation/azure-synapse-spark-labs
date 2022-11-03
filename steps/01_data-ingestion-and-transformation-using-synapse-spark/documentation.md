@@ -146,7 +146,7 @@ print('parquet file path: ' + parquet_path)
 **_Out[4]:_** Output will be similar to : 
 
 ``
-parquet file path: abfss://raw@azwksdatalakeXXXXXX.dfs.core.windows.net/holiday.parquet
+parquet file path: abfss://raw@azrawdatalakeXXXXXX.dfs.core.windows.net/holiday.parquet
 ``
 
 **_In[5]:_**
@@ -170,7 +170,7 @@ print('text file path: ' + text_path)
 **_Out[6]:_** Output will be similar to : 
  
 ``
-text file path: abfss://raw@azwksdatalakeXXXXXX.dfs.core.windows.net/holiday.txt
+text file path: abfss://raw@azrawdatalakeXXXXXX.dfs.core.windows.net/holiday.txt
 ``
 
 **_In[7]:_**
