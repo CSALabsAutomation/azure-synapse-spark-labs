@@ -39,18 +39,34 @@ Azure Open Dataset
    
 > **_NOTE:_** Note down the raw storage account name for further references
 
-## Exercise 1 : Access data on Azure Data Lake Storage Gen2 (ADLS Gen2) with Synapse Spark
+## Exercise 1 : Access data from Open Dataset and storing in Azure Data Lake Storage Gen2 (ADLS Gen2) with Synapse Spark
+
+Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning and readily available to Azure Databricks and Machine Learning Studio (classic). You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) is used as the storage account associated with a Synapse workspace. A synapse workspace can have a default ADLS Gen2 storage account and additional linked storage accounts.
 You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
 ``abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path>``
  
-This notebook provides examples of how to write the output of Spark jobs directly into an ADLS Gen2 location and how to write the output of Spark jobs directly into an ADLS Gen2 location.
+In Spark, a Data Frame is a distributed collection of data organized into named columns. It is conceptually equivalent to a table in a relational database or a data frame in R/Python, but with richer optimizations under the hood. Data Frames can be constructed from a wide array of sources such as: structured data files, tables in Hive, external databases, or existing RDDs.
+
+Resilient Distributed Datasets (RDD) is a fundamental data structure of Spark. It is an immutable distributed collection of objects. Each dataset in RDD is divided into logical partitions, which may be computed on different nodes of the cluster. RDDs can contain any type of Python, Java, or Scala objects, including user-defined classes. Formally, an RDD is a read-only, partitioned collection of records. RDDs can be created through deterministic operations on either data on stable storage or other RDDs. RDD is a fault-tolerant collection of elements that can be operated on in parallel.
+
+Following are the overview of steps performed in this exercise:
+
+1.	First, we import Open dataset (PublicHolidays) of 6 months.
+2.	Convert imported Open dataset to dataframe
+3.	Generate path for raw storage account.
+4.	Convert dataframe to parquet file and store in the raw storage account
+5.	Convert dataframe to RDD and then save that RDD as a text file in the raw storage account
+6.	Last, we will validate the files created in the raw storage account (ADLS Gen2)
+7.	Convert parquet file to dataframe and view dataframe.
 
 ## Data Flow
 
 ![dataflow](./assets/DF1.JPG "dataflow")
+
+The Spark Notebook is the open source notebook aimed at enterprise environments, providing Data Scientists and Data Engineers with an interactive web-based editor that can combine Scala code, SQL queries, Markup and JavaScript in a collaborative manner to explore, analyse and learn from massive data sets.
 
 **Steps for creating notebook:**
 
