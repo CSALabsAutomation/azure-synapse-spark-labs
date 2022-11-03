@@ -241,7 +241,18 @@ Synapse has Azure Open Datasets package pre-installed. This notebook provides ex
 
        - Read Azure Open Dataset
        - Manipulate the data to prepare for further analysis, including column projection, filtering, grouping and joins etc.
-       - Create a Spark table to be used in other notebooks for modeling training
+
+This exercise is to determine the taxi demand precisely considering the factors like holidays and weather condition. Following are the overview of steps performed:
+
+1.	First, we import Open dataset (NycTlcGreen, PublicHolidays and NOAA surface weather) of 6 months and convert to dataframe
+2.	Create, remove, rename some columns, and add a static feature for the country code to join holiday data 
+3.	Join the holiday data with the taxi data by performing a left-join
+4.	Filter out nonempty holiday rows and weather info for new York city
+5.	Remove the recording with null temperature and remove unused columns from weather data
+6.	Next group the weather data so that you have daily aggregated weather values and rename some columns for better readability.
+7.	Merge the taxi and holiday data prepared above with the new weather data using a left-join and filter out negative values
+8.	Then will create new lake database (NYCTaxi) with table and copy the final dataframe to it.  
+
 
 ## Data Flow
 
