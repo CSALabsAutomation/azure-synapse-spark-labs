@@ -4,6 +4,7 @@ Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of
 
 - Write the output of Spark jobs directly into an ADLS Gen2 location
 - Create Spark table reading Azure Open Dataset
+- Analyze and visualize data with Apache Spark
  
 ## Data Source
 
@@ -13,19 +14,59 @@ Azure Open Dataset
  - NycTlcGreen
  - NoaaIsdWeather
 
+## Prerequisites:
+### Log-in to the Azure Portal
 
-## Exercise 1 : Access data on Azure Data Lake Storage Gen2 (ADLS Gen2) with Synapse Spark
+1.  In the **Resource groups** blade, navigate to created resource group and select the created  **Synapse Workspace**.
 
-Azure Data Lake Storage Gen2 (ADLS Gen2) is used as the storage account associated with a Synapse workspace. A synapse workspace can have a default ADLS Gen2 storage account and additional linked storage accounts.
+   ![The Synapse Workspace is highlighted](./assets/01_Synapse.JPG "Select the synapse workspace")  
+   
+2. In the  **_Overview_** section of synapseworkspace select **_Open_** to open synapse studio.
+
+  ![ws](./assets/2_open_ws.jpg "open WS")
+
+### Note : Synapse Administrator access is already provided and below two steps are only for the learning and knowledge purpose
+
+1. If you dont have the Synapse Administrator access then synapse workspace will promt **Failed to load** message.
+
+![views](./assets/01_failed.JPG "view WS")
+    
+2.	To provide Synapse Administrator access In Synapse Studio, under  **_Manage_** tab, select **_Access Control_** and add yourself as the **_Synapse Administrator_**
+
+    ![Access](./assets/4_access.JPG "Access")
+    
+
+   
+> **_NOTE:_** Note down the raw storage account name for further references
+
+## Exercise 1 : Access data from Open Dataset and storing in Azure Data Lake Storage Gen2 (ADLS Gen2) with Synapse Spark
+
+**Azure Open Datasets** are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning and readily available to Azure Databricks and Machine Learning Studio (classic). You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
+
+**Azure Data Lake Storage Gen2 (ADLS Gen2)** is used as the storage account associated with a Synapse workspace. A synapse workspace can have a default ADLS Gen2 storage account and additional linked storage accounts.
 You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
 ``abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path>``
  
-This notebook provides examples of how to write the output of Spark jobs directly into an ADLS Gen2 location and how to write the output of Spark jobs directly into an ADLS Gen2 location.
+In Spark, a **Data Frame** is a distributed collection of data organized into named columns. It is conceptually equivalent to a table in a relational database or a data frame in R/Python, but with richer optimizations under the hood. Data Frames can be constructed from a wide array of sources such as: structured data files, tables in Hive, external databases, or existing RDDs.
+
+**Resilient Distributed Datasets (RDD)** is a fundamental data structure of Spark. It is an immutable distributed collection of objects. Each dataset in RDD is divided into logical partitions, which may be computed on different nodes of the cluster. RDDs can contain any type of Python, Java, or Scala objects, including user-defined classes. Formally, an RDD is a read-only, partitioned collection of records. RDDs can be created through deterministic operations on either data on stable storage or other RDDs. RDD is a fault-tolerant collection of elements that can be operated on in parallel.
+
+Following are the overview of steps performed in this exercise:
+
+1.	First, we import Open dataset (PublicHolidays) of 6 months.
+2.	Convert imported Open dataset to dataframe
+3.	Generate path for raw storage account.
+4.	Convert dataframe to parquet file and store in the raw storage account
+5.	Convert dataframe to RDD and then save that RDD as a text file in the raw storage account
+6.	Last, we will validate the files created in the raw storage account (ADLS Gen2)
+7.	Convert parquet file to dataframe and view dataframe.
 
 ## Data Flow
 
 ![dataflow](./assets/DF1.JPG "dataflow")
+
+The **Spark Notebook** is the open source notebook aimed at enterprise environments, providing Data Scientists and Data Engineers with an interactive web-based editor that can combine Scala code, SQL queries, Markup and JavaScript in a collaborative manner to explore, analyse and learn from massive data sets.
 
 **Steps for creating notebook:**
 
@@ -34,14 +75,14 @@ This notebook provides examples of how to write the output of Spark jobs directl
  ![addSqlScript](./assets/05-create_notebook_adls.jpg "create notebook adls")
  
 2.	Select the Spark Pool in the **_‘Attach To’_** section. 
-3.	In the properties section on the right pane , renaming the notebook as ``ntb_Open_DataSet_To_ADLS``.
+3.	In the properties section on the right pane , renaming the notebook as **ntb_Open_DataSet_To_ADLS**
 4.	Run the below scripts in the command cell. And use **_(+Code)_** icon for new cells.
  
  ![addSqlScript](./assets/05-run_notebook_adls.jpg "run notebook adls")
 
 ### Load sample data
 
-Let's first load the public holidays of last 6 months from Azure Open datasets as a sample.
+Let's first load the public holidays of last 6 months from Azure Open datasets as a sample. Click on Run button of cell to run the below code.
 
 **_In[1]:_**
 
@@ -94,7 +135,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import *
 
 # Primary storage info
-account_name = ' <azrawStorageAccount> ' # fill in your raw account name
+account_name = '<azrawStorageAccount>' # fill in your raw account name
 container_name = 'raw'
 relative_path = ''
 
@@ -118,10 +159,10 @@ parquet_path = adls_path + 'holiday.parquet'
 print('parquet file path: ' + parquet_path)
 ```
  
-**_Out[4]:_** 
+**_Out[4]:_** Output will be similar to : 
 
 ``
-parquet file path: abfss://raw@azwksdatalakejea3xm.dfs.core.windows.net/holiday.parquet
+parquet file path: abfss://raw@azrawdatalakeXXXXXX.dfs.core.windows.net/holiday.parquet
 ``
 
 **_In[5]:_**
@@ -142,10 +183,10 @@ text_path = adls_path + 'holiday.txt'
 print('text file path: ' + text_path)
 ```
  
-**_Out[6]:_**
+**_Out[6]:_** Output will be similar to : 
  
 ``
-text file path: abfss://sandpit@azwksdatalakejea3xm.dfs.core.windows.net/holiday.txt
+text file path: abfss://raw@azrawdatalakeXXXXXX.dfs.core.windows.net/holiday.txt
 ``
 
 **_In[7]:_**
@@ -200,7 +241,18 @@ Synapse has Azure Open Datasets package pre-installed. This notebook provides ex
 
        - Read Azure Open Dataset
        - Manipulate the data to prepare for further analysis, including column projection, filtering, grouping and joins etc.
-       - Create a Spark table to be used in other notebooks for modeling training
+
+This exercise is to determine the taxi demand precisely considering the factors like holidays and weather condition. Following are the overview of steps performed:
+
+1.	First, we import Open dataset (NycTlcGreen, PublicHolidays and NOAA surface weather) of 6 months and convert to dataframe
+2.	Create, remove, rename some columns, and add a static feature for the country code to join holiday data 
+3.	Join the holiday data with the taxi data by performing a left-join
+4.	Filter out nonempty holiday rows and weather info for new York city
+5.	Remove the recording with null temperature and remove unused columns from weather data
+6.	Next group the weather data so that you have daily aggregated weather values and rename some columns for better readability.
+7.	Merge the taxi and holiday data prepared above with the new weather data using a left-join and filter out negative values
+8.	Then will create new lake database (NYCTaxi) with table and copy the final dataframe to it.  
+
 
 ## Data Flow
 
@@ -213,7 +265,7 @@ Synapse has Azure Open Datasets package pre-installed. This notebook provides ex
        ![createNotebooks](./assets/06-create_notebook_dl.jpg "create notebook")
   
 3.	Select the Spark Pool in the **_‘Attach To’_** section. 
-3.	In the properties section on the right pane rename the notebook as ``ntb_Open_DataSet_To_LakeDB``
+3.	In the properties section on the right pane rename the notebook as **ntb_Open_DataSet_To_LakeDB**
 4.	Run the below code in the command cell. And use **_(+Code)_** icon for new cells.
        ![runNotebooks](./assets/06-run_notebook_dl.jpg "run notebook")
        
@@ -530,7 +582,7 @@ spark.sql("SELECT COUNT(*) FROM nyc_taxi_holiday_weather").show();
 
 1)	Once executing all the code cells. Click **_Validate All_** and **_Publish All_** at the top.
        ![publishNotebooks](./assets/06-publish_notebook_dl.jpg "publish notebook")
-3)	Navigate to **_Data Tab_**. Under Workspace expand **_Lake database_**.
+3)	Navigate to **_Data Tab_**. Under Workspace, refresh and then expand **_Lake database_**.
 4)	Check for the **_NycTaxi database and expand it_**.
 5)	Make sure you have **_nyc_taxi_holiday_weather table created_**.
 
@@ -544,7 +596,7 @@ In particular, we'll analyze the New York City (NYC) Taxi dataset. The data is a
 
 ### Download and prepare the data
 
- 1. Create a new notebook as created in above exercises and name it ``ntb_Analyze_and_Visualize_data``.
+ 1. Create a new notebook as created in above exercises and name it **ntb_Analyze_and_Visualize_data**
  2. In this tutorial, we'll use several different libraries to help us visualize the dataset. To do this analysis, import the following libraries:
  
    ```python
@@ -607,7 +659,7 @@ FROM taxi_dataset
 GROUP BY day_of_month
 ORDER BY day_of_month ASC
 ```
-2. After our query finishes running, we can visualize the results by switching to the chart view. This example creates a line chart by specifying the day_of_month field as the key and avgTipAmount as the value. After you've made the selections, select Apply to refresh your chart.
+2. After our query finishes running, we can visualize the results by switching to the chart view. This example creates a line chart by specifying the day_of_month field as the key and avgTipAmount as the value.
 
 ### Visualize data
 
