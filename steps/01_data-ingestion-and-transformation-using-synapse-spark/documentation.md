@@ -15,6 +15,15 @@ Azure Open Dataset
  - NoaaIsdWeather
 
 ## Prerequisites:
+
+### Note azure raw datalake storage account
+
+1. In the **Resource groups** blade, Sort the resorces by Type where you can see three storage account.
+   Raw datalake storage account is one that starts with **azrawdatalake** followed by random string. Note down same as this will be used many times when proceed with 
+   this lab.
+   
+   ![Note azure raw datalake storage account](./assets/rawlakestorage.jpg "rawstorageaccount")  
+
 ### Log-in to the Azure Portal
 
 1.  In the **Resource groups** blade, navigate to created resource group and select the created  **Synapse Workspace**.
@@ -36,8 +45,6 @@ Azure Open Dataset
     ![Access](./assets/4_access.JPG "Access")
     
 
-   
-> **_NOTE:_** Note down the raw storage account name for further references
 
 ## Exercise 1 : Access data from Open Dataset and storing in Azure Data Lake Storage Gen2 (ADLS Gen2) with Synapse Spark
 
