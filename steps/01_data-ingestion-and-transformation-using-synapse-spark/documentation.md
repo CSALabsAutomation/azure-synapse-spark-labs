@@ -133,7 +133,7 @@ only showing top 5 rows
 We are going to write the spark dataframe to your default ADLS Gen2 storage account.
 
 ### Note: 
-Replace the **"azrawStorageAccount"** placeholder with the **Raw storage account** name before running the below code.
+Replace the **"azrawStorageAccount"** placeholder with the **Raw storage account** name before running the below code. (Refer Prerequisites for getting the raw data lake storage account name)
 
 **_In[3]:_**
 
