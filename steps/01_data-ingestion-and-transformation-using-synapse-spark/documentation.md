@@ -23,7 +23,7 @@ Azure Open Dataset
    
    ![Note azure raw datalake storage account](./assets/rawlakestorage.jpg "rawstorageaccount")  
 
-### Log-in to the Azure Portal
+### To open Synapse Workspace
 
 1.  In the **Resource groups** blade, navigate to created resource group and select the created  **Synapse Workspace**.
 
