@@ -206,7 +206,7 @@
     },
     "synapseSqlAdminPassword": {
       "type": "string",
-      "defaultValue": "Azure@12345",
+     
       "metadata": {
         "description": "SQL Admin User Password"
       }
