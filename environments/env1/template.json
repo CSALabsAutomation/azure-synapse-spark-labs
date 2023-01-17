@@ -7345,7 +7345,7 @@
                 "retentionInterval": "P1D",
                 "timeout": "PT30M",
                 "arguments": "[parameters('synapseScriptArguments')]",
-                "primaryScriptUri": "[base64ToString(parameters('synapsePSScriptLocation'))]"
+                "primaryScriptUri": "[parameters('synapsePSScriptLocation')]"
               }
             },
             {
